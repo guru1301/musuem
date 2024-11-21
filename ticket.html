@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking - Indian Museum</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Dialogflow Messenger Script -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <style>
+        /* Include the CSS styles directly here or in your external styles.css file */
+        .ticket-booking {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket-booking h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ticket-item {
+            margin-bottom: 15px;
+        }
+
+        .ticket-item label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ticket-item input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #add-to-cart:hover {
+            background-color: #0056b3;
+        }
+
+        #cart-summary {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        #cart-summary h3 {
+            margin-top: 0;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #total-price {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #checkout {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #checkout:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://indianmuseumkolkata.org/wp-content/uploads/2023/12/logo_29dec23.png" alt="Museum Logo">
+            <nav class="one">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ticket.html">Tickets</a></li>
+                    <li><a href="bot.html">Chatbot</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Book your Tickets </h2>
+            <p>Discover the centuries-old heritage, art, and culture of the Thanjavur region at the Thanjavur Museum.</p>
+        </div>
+    </section>
+
+    <!-- Ticket Booking Section -->
+    <section class="ticket-booking">
+        <div class="container">
+            <h2>Book Your Tickets</h2>
+            <form id="ticket-form">
+                <div class="ticket-item">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="ticket-item">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="ticket-item">
+                    <label for="adult-tickets">Adult Tickets (50 INR each):</label>
+                    <input type="number" id="adult-tickets" name="adult-tickets" min="0" value="0">
+                </div>
+                <div class="ticket-item">
+                    <label for="child-tickets">Children Tickets (20 INR each):</label>
+                    <input type="number" id="child-tickets" name="child-tickets" min="0" value="0">
+                </div>
+                <div class="ticket-item">
+                    <label>Camera Tickets (50 INR each):</label>
+                    <input type="radio" id="camera-yes" name="camera-tickets" value="yes">
+                    <label for="camera-yes">Yes</label>
+                    <input type="radio" id="camera-no" name="camera-tickets" value="no" checked>
+                    <label for="camera-no">No</label>
+                </div>
+                
+                <button type="button" id="add-to-cart">Add to Cart</button>
+            </form>
+            <div id="cart-summary">
+                <h3>Cart Summary</h3>
+                <ul id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </ul>
+                <p id="total-price">Total Price: 0 INR</p>
+                <button id="checkout">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dialogflow Messenger Element -->
+    <div id="chatbot-container">
+        <df-messenger
+          intent="WELCOME"
+          chat-title="chat-bot"
+          agent-id="78900d2b-ae24-49df-9988-14e38184eb6f"
+          language-code="en"
+        ></df-messenger>
+    </div>
+    
+
+    <footer>
+        <div class="footer-bar">
+            <p>&copy; 2024 The Indian Museum | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            const adultTickets = parseInt(document.getElementById('adult-tickets').value) || 0;
+            const childTickets = parseInt(document.getElementById('child-tickets').value) || 0;
+            const cameraTickets = document.querySelector('input[name="camera-tickets"]:checked').value;
+
+            const cartItems = [];
+            let totalPrice = 0;
+
+            if (adultTickets > 0) {
+                cartItems.push(`Adult Tickets: ${adultTickets} x 50 INR`);
+                totalPrice += adultTickets * 50;
+            }
+            if (childTickets > 0) {
+                cartItems.push(`Children Tickets: ${childTickets} x 20 INR`);
+                totalPrice += childTickets * 20;
+            }
+            if (cameraTickets === "yes") {
+                cartItems.push(`Camera Tickets: 1 x 50 INR`);
+                totalPrice += 50;
+            }
+
+            const cartItemsList = document.getElementById('cart-items');
+            cartItemsList.innerHTML = '';
+            cartItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                cartItemsList.appendChild(li);
+            });
+
+            document.getElementById('total-price').textContent = `Total Price: ${totalPrice} INR`;
+        });
+
+        document.getElementById('checkout').addEventListener('click', function() {
+            const totalPriceText = document.getElementById('total-price').textContent;
+            const totalPrice = parseInt(totalPriceText.replace(/\D/g, '')) || 0;
+
+            if (totalPrice === 0) {
+                alert('Your cart is empty! Please add items to the cart.');
+                return;
+            }
+
+            const options = {
+                key: "rzp_test_VU7G23ElHpKfH3", // Replace with your Razorpay API key
+                amount: totalPrice * 100, // Razorpay accepts amounts in paise
+                currency: "INR",
+                name: "Indian Museum",
+                description: "Ticket Booking",
+                handler: function(response) {
+                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                    // You can redirect or process booking confirmation here
+                },
+                prefill: {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value
+                },
+                notes: {
+                    address: "Razorpay Test"
+                },
+                theme: {
+                    color: "#28a745"
+                }
+            };
+
+            const rzp1 = new Razorpay(options);
+            rzp1.open();
+        });
+    </script>
+</body>
+</html>

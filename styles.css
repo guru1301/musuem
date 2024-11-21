@@ -1,0 +1,1472 @@
+
+body, h1, h2, p, ul, li, a, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.one {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Header styles */
+header {
+    background: #13130d;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    animation: slide-down 0.5s ease-in-out; 
+}
+
+header h1 {
+    margin-left: 20px;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; 
+    font-weight: bold;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: rgba(63,145,215,255);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: rgba(63,145,215,255);
+}
+
+/* Hero section styles */
+.hero {
+    background-image: url('images/d3e0b41c-adae-4f06-ba59-717112df6791.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.hero h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 2;
+    position: relative;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    z-index: 2;
+    position: relative;
+}
+
+.hero a {
+    background: rgba(63,145,215,255);
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.3em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.hero a:hover {
+    background: #113c74;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Main content styles */
+main {
+    padding: 40px 0;
+}
+
+#ticket-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-in-out; 
+}
+
+#ticket-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: #113c74; 
+}
+
+#ticket-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#ticket-form input:focus {
+    border-color: rgba(63,145,215,255);
+    outline: none;
+    box-shadow: 0 0 8px rgba(63,145,215,255, 0.3);
+}
+
+#ticket-form button {
+    background: rgba(63,145,215,255);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#ticket-form button:hover {
+    background: #113c74;
+    transform: scale(1.05);
+}
+
+/* Chatbot styles */
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#chatbot-button {
+    background: rgba(63,145,215,255);
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 50%; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-size: 20px; 
+    text-align: center;
+    position: relative;
+}
+
+#chatbot-button::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(63,145,215,255); 
+}
+
+#chatbot-button:hover {
+    background: #113c74;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#chatbot-window {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 320px;
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+.footer-bar {
+    background-color: #13130d;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-bar p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Slideshow Styles */
+.section {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slide {
+    width: 900%; 
+    height: 100%;
+    display: flex;
+    transition: margin-left 0.5s ease;
+}
+
+.st {
+    width: 11.111%; 
+    flex-shrink: 0;
+}
+
+.st img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; 
+}
+
+.nav-m {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev-btn, .next-btn {
+    background-color: rgba(63,145,215,255); 
+    border: none;
+    color: white;
+    padding: 15px 25px; 
+    cursor: pointer;
+    font-size: 18px; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #113c74; 
+    transform: scale(1.1); 
+}
+
+.nav-auto {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    border: 2px solid rgba(63,145,215,255);
+    padding: 5px;
+    border-radius: 10px;
+    transition: background-color 1s;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: rgba(63,145,215,255);
+}
+
+/* Museum History Styles */
+.museum-history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #113c74;
+    animation: slide-in 1s ease-in-out; 
+}
+
+.museum-history .container {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+.museum-photo {
+    width: 45%;
+    height: auto;
+    margin-right: 5%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.museum-photo:hover {
+    transform: scale(1.05); 
+}
+
+.history-text {
+    width: 50%;
+    text-align: left;
+}
+
+.history-text h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.history-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f6f6f6;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .museum-photo {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .history-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .history-text h3 {
+        font-size: 2em;
+    }
+
+    .history-text p {
+        font-size: 1.1em;
+    }
+}
+
+/* Animations */
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.about-section {
+    padding: 50px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.about-section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #113c74;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-item {
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item p {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1em;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-item {
+        width: 100%;
+    }
+}
+.explore-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(63,145,215,255);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-more-btn:hover {
+    background: #113c74;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+/* Contact Form Styles */
+.contact-form {
+    padding: 50px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.contact-form h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #113c74;
+}
+
+.contact-form p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: #113c74;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact-form button {
+    background: rgba(63,145,215,255);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#contact-form button:hover {
+    background: #113c74;
+    transform: scale(1.05);
+}
+
+/* Contact Details Styles */
+.contact-details {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.map-container {
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-item {
+    flex: 1 1 200px;
+    text-align: left;
+}
+
+.contact-item i {
+    color: #113c74;
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.2em;
+    color: #113c74;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: rgba(63,145,215,255);
+}
+
+/* Cart Styles */
+#cart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#cart h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #113c74; 
+}
+
+#cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+#cart ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    font-size: 1em;
+}
+
+#cart ul li:last-child {
+    border-bottom: none;
+}
+
+#cart p {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #333;
+}
+
+#cart button {
+    background-color: rgba(63,145,215,255);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#cart button:hover {
+    background-color: #113c74;
+    transform: scale(1.05);
+}
+/* Global Styles */
+
+
+/* Museum History Styles */
+.museum-history {
+    padding: 50px 0;
+    background-color: #f0f0f0;
+}
+
+.museum-history .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.museum-photo {
+    flex: 1;
+    margin-right: 5%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden; 
+}
+
+.museum-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease; 
+}
+
+.museum-photo img:hover {
+    transform: scale(1.05); 
+}
+
+.history-text {
+    flex: 1;
+    text-align: left;
+}
+
+.history-text h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.history-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.history-text a.explore-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #3f91d7;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-text a.explore-more-btn:hover {
+    background-color: #1c6eb3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+/* Saraswathi Mahal Library Styles */
+.saraswathi-library {
+    padding: 50px 0;
+    background-color: #f7f7f7; 
+}
+
+.saraswathi-library .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.library-text {
+    flex: 1;
+    text-align: left;
+    margin-right: 5%;
+}
+
+.library-text h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.library-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.library-text a.explore-more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #3f91d7;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.library-text a.explore-more-btn:hover {
+    background-color: #1c6eb3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.library-photo {
+    flex: 1;
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.library-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease; 
+}
+
+.library-photo img:hover {
+    transform: scale(1.05); 
+}
+
+/* Thanjavur Maratha Palace Section */
+.maratha-palace {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.maratha-palace .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.maratha-palace .palace-text {
+    flex: 1;
+    text-align: left;
+    margin-right: 5%;
+}
+
+.maratha-palace .palace-text h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.maratha-palace .palace-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.maratha-palace .palace-photo {
+    flex: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.maratha-palace .palace-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.maratha-palace .palace-photo img:hover {
+    transform: scale(1.05); 
+}
+
+.explore-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-more-btn:hover {
+    background-color: #004494;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Brihadeeswara Temple Section */
+.brihadeeswara-temple {
+    padding: 50px 0;
+    background-color: #fafafa;
+}
+
+.brihadeeswara-temple .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brihadeeswara-temple .temple-photo {
+    flex: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.brihadeeswara-temple .temple-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.brihadeeswara-temple .temple-photo img:hover {
+    transform: scale(1.05); 
+}
+
+.brihadeeswara-temple .temple-text {
+    flex: 1;
+    text-align: left;
+}
+
+.brihadeeswara-temple .temple-text h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.brihadeeswara-temple .temple-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.explore-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-more-btn:hover {
+    background-color: #004494;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .museum-photo, .palace-photo, .temple-photo {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+
+    .history-text, .palace-text, .temple-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .history-text h3, .palace-text h3, .temple-text h3 {
+        font-size: 2em;
+    }
+
+    .history-text p, .palace-text p, .temple-text p {
+        font-size: 1.1em;
+    }
+}
+
+
+/* Moving Text Section */
+.moving-text {
+    background: linear-gradient(to right, #020202, #040404);
+    padding: 10px 0;
+    border-top: 2px solid #020202;
+    border-bottom: 2px solid #000000;
+    overflow: hidden; 
+}
+
+.moving-text .container {
+    position: relative;
+    width: 100%;
+}
+
+.moving-text .marquee-wrapper {
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+
+.moving-text .marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite; 
+}
+
+.moving-text .marquee span {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Add some hover effect */
+.moving-text .marquee span:hover {
+    color: #0f4fa2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Chatbot Container */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    transform: scale(0.8); 
+    transform-origin: bottom right; 
+    z-index: 1000; 
+}
+
+/* Adjust the size of the Dialogflow Messenger */
+df-messenger {
+    width: 1800px;
+    height: 1000px; 
+}
+/* Museum Details Section */
+.museum-details {
+    background-color: #13130d;
+    padding: 20px 0;
+    color: #fff;
+}
+
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; 
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.details-photo {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.details-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.details-info {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.details-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #f4efef;
+}
+
+.details-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #fffdfd;
+}
+
+.details-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.details-info ul li {
+    font-size: 1.1em;
+    color: #d5d4d4;
+    margin-bottom: 10px;
+    display: block; 
+}
+
+.details-info ul li i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.book-tickets-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+.book-tickets-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Gallery Section Styling */
+.gallery {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.gallery .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.gallery-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6); 
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1; 
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 15px; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); 
+    color: #ffffff; 
+}
+/* Tanjore Temple Gallery Styling */
+.tanjore-hero {
+    background-color: #f0f0f0;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.tanjore-hero h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.tanjore-hero p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Tanjore Gallery Section */
+/* Tanjore Hero Section Styling */
+.tanjore-hero {
+    background-color: #e6e6e6;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.tanjore-hero h2 {
+    font-size: 3em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.tanjore-hero p {
+    font-size: 1.5em;
+    color: #7f8c8d;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Tanjore Gallery Section */
+.tanjore-gallery {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.tanjore-gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.tanjore-gallery-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.tanjore-gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tanjore-gallery-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #007bff;
+}
+
+.tanjore-gallery-item p {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.tanjore-gallery-item p strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Footer */
+.tanjore-footer-bar {
+    background-color: #2c3e50;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.tanjore-footer-bar p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* Tanjore Gallery Section */
+.maratha-gallery {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.maratha-gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.maratha-gallery-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.maratha-gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.maratha-gallery-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #007bff;
+}
+
+.maratha-gallery-item p {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.maratha-gallery-item p strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Footer */
+.maratha-footer-bar {
+    background-color: #2c3e50;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.maratha-footer-bar p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* Saraswathi Mahal Library Gallery Section */
+.saraswathi-gallery {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.saraswathi-gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.saraswathi-gallery-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.saraswathi-gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.saraswathi-gallery-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #007bff;
+}
+
+.saraswathi-gallery-item p {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.saraswathi-gallery-item p strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Footer */
+.saraswathi-footer-bar {
+    background-color: #2c3e50;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.saraswathi-footer-bar p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* District Collectorate Museum Gallery Section */
+.collectorate-gallery {
+    padding: 60px 20px;
+    background-color: #f0f2f5;
+}
+
+.collectorate-gallery .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.collectorate-gallery-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.collectorate-gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.collectorate-gallery-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #007bff;
+}
+
+.collectorate-gallery-item p {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.collectorate-gallery-item p strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Footer */
+.collectorate-footer-bar {
+    background-color: #2c3e50;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+.collectorate-footer-bar p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* Styling the chat iframe with specific class */
+.museum-chat-frame {
+    display: block;
+    margin: 50px auto; /* Centers the iframe horizontally */
+    border: 2px solid #007bff; /* Adds a blue border around the iframe */
+    border-radius: 15px; /* Rounds the corners of the iframe */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Adds a soft shadow around the iframe */
+    width: 450px; /* Specifies the width of the iframe */
+    height: 600px; /* Specifies the height of the iframe */
+    transition: transform 0.3s ease-in-out; /* Adds a smooth scaling effect */
+}
+
+/* Optional: On hover, slightly enlarge the chat */
+.museum-chat-frame:hover {
+    transform: scale(1.05); /* Slightly enlarges the iframe on hover */
+}

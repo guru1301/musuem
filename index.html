@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanjavur Museum - Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Dialogflow Messenger Script -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <img src="https://indianmuseumkolkata.org/wp-content/uploads/2023/12/logo_29dec23.png" alt="Museum Logo">
+            <nav class="one">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ticket.html">Tickets</a></li>
+                    <li><a href="bot.html">Chatbot</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>District Collectorate Museum - Thanjavur</h2>
+            <p>Discover the centuries-old heritage, art, and culture of the Thanjavur region at the Thanjavur Museum.</p>
+            <a href="ticket.html" id="book-tickets">Book Tickets Now</a>
+        </div>
+    </section>
+    <section class="moving-text">
+        <div class="container">
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <span>Museum Timings: 9:00 AM - 6:00 PM | Upcoming Event: Thanjavur Art Exhibition (15th September 2024) | Special Tour: History of the Cholas (22nd September 2024)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="slider">
+            <div class="slide">
+                <div class="st"><img src="images/1.jpg" alt="Banner 1"></div>
+                <div class="st"><img src="images/2.jpg" alt="Banner 2"></div>
+                <div class="st"><img src="images/3.jpg" alt="Banner 3"></div>
+                <div class="st"><img src="images/4.jpg" alt="Banner 4"></div>
+                <div class="st"><img src="images/5.jpg" alt="Banner 5"></div>
+                <div class="st"><img src="images/6.jpg" alt="Banner 6"></div>
+                <div class="st"><img src="images/7.jpg" alt="Banner 7"></div>
+                <div class="st"><img src="images/8.jpg" alt="Banner 8"></div>
+                <div class="st"><img src="images/9.jpg" alt="Banner 9"></div>
+            </div>
+            <div class="nav-m">
+                <button class="prev-btn">Prev</button>
+                <button class="next-btn">Next</button>
+            </div>
+            <div class="nav-auto">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+    <section class="museum-history">
+        <div class="container">
+            <img src="images/Thanjavur_Museum_ttkcvrvb122k23pxl_(1).jpg" alt="Indian Museum" class="museum-photo">
+            <div class="history-text">
+                <h3>History of the Thanjavur Museum</h3>
+                <p>The Thanjavur Museum is housed in a building that formerly served as the District Collector's office in the city of Thanjavur. The building was built about 120 years ago in 1900 by British architect Robert Chisol. The building is built in the Saracen style of architecture. Following the relocation of the collector's office which was functioning here, the district administration decided to build a museum based on the Smart City mission at a cost of 9.90 crore.</p>
+                
+                <!-- Add Explore More Button Here -->
+                <a href="about.html" class="explore-more-btn">Explore More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dialogflow Messenger Element -->
+    <!-- Chatbot Container -->
+<div id="chatbot-container">
+    <df-messenger
+      intent="WELCOME"
+      chat-title="chat-bot"
+      agent-id="78900d2b-ae24-49df-9988-14e38184eb6f"
+      language-code="en"
+    ></df-messenger>
+</div>
+<!-- Museum Details Section -->
+<section class="museum-details">
+    <div class="container">
+        <div class="details-content">
+            <div class="details-photo">
+                <img src="images/FwZE8r_aMAIFo5N.jpg_large" alt="Museum Photo">
+            </div>
+            <div class="details-info">
+                <h3>Museum Details</h3>
+                <p><strong>Timings:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Ticket Prices:</strong></p>
+                <ul>
+                    <li>Adult: 50 INR</li>
+                    <li>Child (5-12 years): 20 INR</li>
+                    <li>Child (Below 5 years): Free</li>
+                    <li>Camera Ticket: 50 INR</li>
+                </ul>
+                <p><strong>Contact Us:</strong></p>
+                <ul class="contact-info">
+                    <li><i class="fa fa-envelope"></i> email@example.com</li>
+                    <li><i class="fa fa-phone"></i> +91 123 456 7890</li>
+                    <li><i class="fa fa-map-marker"></i> 123 Museum Road, City, Country</li>
+                </ul>
+                <a href="ticket.html" class="book-tickets-btn">Book Tickets Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+    <footer>
+        <div class="footer-bar">
+            <p>&copy; 2024 The Indian Museum | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Thanjavur Museum</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Dialogflow Messenger Script -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="https://indianmuseumkolkata.org/wp-content/uploads/2023/12/logo_29dec23.png" alt="Museum Logo">
+            <nav class="one">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ticket.html">Tickets</a></li>
+                    <li><a href="bot.html">Chatbot</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Reach out to us for any inquiries or feedback.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <div class="container">
+            <h3>Get in Touch</h3>
+            <p>If you have any questions, comments, or need assistance, please fill out the form below or contact us through the provided details.</p>
+
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="contact-details">
+        <div class="container">
+            <h3>Our Location</h3>
+            <p>Visit us at:</p>
+            <div class="map-container">
+                <!-- Embed Google Map for Thanjavur Museum -->
+                <iframe src="https://maps.google.com/maps?q=Old%20Collectorate%20Museum&t=m&z=16&output=embed&iwloc=near" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Museum Avenue, Thanjavur, Tamil Nadu, 613001, India</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:info@strawhatmuseum.com">info@strawhatmuseum.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 12345 67890</p>
+                </div>
+            </div>
+
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://facebook.com/strawhatmuseum" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://twitter.com/strawhatmuseum" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://instagram.com/strawhatmuseum" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+      <!-- Dialogflow Messenger Element -->
+    <!-- Chatbot Container -->
+<div id="chatbot-container">
+    <df-messenger
+      intent="WELCOME"
+      chat-title="chat-bot"
+      agent-id="78900d2b-ae24-49df-9988-14e38184eb6f"
+      language-code="en"
+    ></df-messenger>
+</div>
+    
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-bar">
+            <p>&copy; 2024 The Thanjavur Museum | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Straw Hat Museum</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Dialogflow Messenger Script -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="https://indianmuseumkolkata.org/wp-content/uploads/2023/12/logo_29dec23.png" alt="Museum Logo">
+            <nav class="one">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="ticket.html">Tickets</a></li>
+                    <li><a href="bot.html">Chatbot</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Gallery</h2>
+            <p>Explore the diverse and fascinating collection of straw hats from around the world.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-item">
+                <a href="tanjore.html" class="gallery-link">
+                    <img src="images/Brihadeeswarar-Temple-Thanjavur-Tamil-Nadu-1.png" alt="Tanjore Temple">
+                    <div class="overlay">
+                        <p>Explore More</p>
+                    </div>
+                </a>
+                <p>Tanjore Temple</p>
+            </div>
+            <div class="gallery-item">
+                <a href="musuem.html" class="gallery-link">
+                    <img src="images/Thanjavur_museum.png" alt="Museum">
+                    <div class="overlay">
+                        <p>Explore More</p>
+                    </div>
+                </a>
+                <p>Museum</p>
+            </div>
+            <div class="gallery-item">
+                <a href="sar.html" class="gallery-link">
+                    <img src="images/2013-Sarasvati-Mahal-Library-101.jpeg" alt="Saraswathi Mahal Library">
+                    <div class="overlay">
+                        <p>Explore More</p>
+                    </div>
+                </a>
+                <p>Saraswathi Mahal Library</p>
+            </div>
+            <div class="gallery-item">
+                <a href="maratha.html" class="gallery-link">
+                    <img src="images/20210117-mjp07224-1.png" alt="Manora Palace">
+                    <div class="overlay">
+                        <p>Explore More</p>
+                    </div>
+                </a>
+                <p>Maratha Palace</p>
+            </div>
+        </div>
+    </section>
+      <!-- Dialogflow Messenger Element -->
+    <!-- Chatbot Container -->
+<div id="chatbot-container">
+    <df-messenger
+      intent="WELCOME"
+      chat-title="chat-bot"
+      agent-id="78900d2b-ae24-49df-9988-14e38184eb6f"
+      language-code="en"
+    ></df-messenger>
+</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-bar">
+            <p>&copy; 2024 The Straw Hat Museum | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
